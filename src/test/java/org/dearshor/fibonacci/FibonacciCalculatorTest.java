@@ -6,6 +6,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -17,7 +18,7 @@ import static org.junit.Assert.*;
 public class FibonacciCalculatorTest {
 
     private static FibonacciCalculator calculator;
-    private static ConcurrentHashMap<Long, BigDecimal> cache;
+    private static ConcurrentHashMap<Long, BigInteger> cache;
 
     @BeforeClass
     public static void setUp() throws Exception {
@@ -30,18 +31,29 @@ public class FibonacciCalculatorTest {
     }
 
     @Test
-    public void testCalculate() throws Exception {
-//        System.out.printf("fibonacci(1) = %s \n", calculator.calculate(1L).toString());
-//        System.out.printf("fibonacci(10) = %s \n", calculator.calculate(10L).toString());
-//        System.out.printf("fibonacci(20) = %s \n", calculator.calculate(20L).toString());
-//        System.out.printf("fibonacci(50) = %s \n", calculator.calculate(50L).toString());
+    public void testCalculate2() throws Exception {
+
+        System.out.printf("fibonacci(100) = %s \n", calculator.calculate2(100L));
+        System.out.printf("fibonacci(1000) = %s \n", calculator.calculate2(1000L));
+        System.out.printf("fibonacci(1500) = %s \n", calculator.calculate2(1500L));
+        System.out.printf("fibonacci(10000) = %s \n", calculator.calculate2(10000L));
+        System.out.printf("fibonacci(20000) = %s \n", calculator.calculate2(20000L));
+        System.out.printf("fibonacci(100000) = %s \n", calculator.calculate2(100000L));
+        System.out.printf("fibonacci(1000000) = %s \n", calculator.calculate2(1000000L));
+    }
+
+    @Test
+    public void testCalculate3() throws Exception {
+
         System.out.printf("fibonacci(100) = %s \n", calculator.calculate3(100L));
         System.out.printf("fibonacci(1000) = %s \n", calculator.calculate3(1000L));
         System.out.printf("fibonacci(1500) = %s \n", calculator.calculate3(1500L));
         System.out.printf("fibonacci(10000) = %s \n", calculator.calculate3(10000L));
         System.out.printf("fibonacci(20000) = %s \n", calculator.calculate3(20000L));
         System.out.printf("fibonacci(100000) = %s \n", calculator.calculate3(100000L));
-//        System.out.printf("fibonacci(Integer.MAX_VALUE) = %s \n", calculator.calculate3(Integer.MAX_VALUE));
+        System.out.printf("fibonacci(1000000) = %s \n", calculator.calculate3(1000000L));
+
+
 
         /*System.out.println();
 
@@ -49,4 +61,24 @@ public class FibonacciCalculatorTest {
             System.out.printf("%d => %s \n", e.getKey(), e.getValue().toString());
         }*/
     }
+
+    @Test
+    public void testCalculate() throws Exception {
+        System.out.printf("fibonacci(100) = %s \n", calculator.calculate(100L));
+        System.out.printf("fibonacci(1000) = %s \n", calculator.calculate(1000L));
+        System.out.printf("fibonacci(1500) = %s \n", calculator.calculate(1500L));
+        System.out.printf("fibonacci(10000) = %s \n", calculator.calculate(10000L));
+        System.out.printf("fibonacci(20000) = %s \n", calculator.calculate(20000L));
+        System.out.printf("fibonacci(100000) = %s \n", calculator.calculate(100000L));
+        System.out.printf("fibonacci(1000000) = %s \n", calculator.calculate(1000000L));
+//        System.out.printf("fibonacci(Integer.MAX_VALUE) = %s \n", calculator.calculate3(Integer.MAX_VALUE));
+    }
+
+    @Test
+    public void testCalculateAgain() throws Exception {
+        System.out.printf("fibonacci(1000000) = %s \n", calculator.calculate(1000000L));
+
+    }
+
+
 }
