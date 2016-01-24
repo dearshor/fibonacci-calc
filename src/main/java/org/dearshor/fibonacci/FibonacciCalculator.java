@@ -20,30 +20,22 @@ public class FibonacciCalculator {
         assert n >= 0;
 
         if(n < 2) {
-            return cache.computeIfAbsent(n, new Function<Long, BigInteger>() {
-                @Override
-                public BigInteger apply(Long aLong) {
-                    return BigInteger.valueOf(aLong);
-                }
-            });
+            return cache.computeIfAbsent(n, aLong -> BigInteger.valueOf(aLong));
         }
 
 
 
 
-        return  cache.computeIfAbsent(n, new Function<Long, BigInteger>() {
-            @Override
-            public BigInteger apply(Long aLong) {
-                BigInteger result = BigInteger.ZERO;
-                BigInteger x1 = BigInteger.ZERO;
-                BigInteger x2 = BigInteger.ONE;
-                for(long m = 2L; m++ <= n ;) {
-                    result = x1.add(x2);
-                    x1 = x2;
-                    x2 = result;
-                }
-                return result;
+        return  cache.computeIfAbsent(n, aLong -> {
+            BigInteger result = BigInteger.ZERO;
+            BigInteger x1 = BigInteger.ZERO;
+            BigInteger x2 = BigInteger.ONE;
+            for(long m = 2L; m++ <= n ;) {
+                result = x1.add(x2);
+                x1 = x2;
+                x2 = result;
             }
+            return result;
         });
 
     }
